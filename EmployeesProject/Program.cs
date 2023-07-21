@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmployeesProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,61 +7,6 @@ using System.Threading.Tasks;
 
 namespace EmployeesProject
 {
-    public class Employee
-    {
-        public int id { get; set; }
-
-        public string Name { get; set; }
-
-        public int Age { get; set; }
-
-        public string Position { get; set; }
-    }
-
-    
-
-    public class EmployeeManagement
-    {
-        private List<Employee> list = new List<Employee>();
-
-        public bool AddEmployee(Employee employee)
-        {
-            var emp = list.FirstOrDefault(x => x.id == employee.id);
-            if (employee == null)
-                return false;
-            else if (emp != null)
-            {
-                Console.WriteLine("Such employee already exist");
-                return false;
-
-            }
-            list.Add(employee);
-            return true;
-        }
-
-
-        public bool RemoveEmployee(int id)
-        {
-            var emp = list.FirstOrDefault(x => x.id == id);
-            if (emp == null)
-                return false;
-            list.Remove(emp);
-            return true;
-        }
-
-
-        public List<Employee> GetAllEmployee()
-        {
-            if (list.Count <= 0)
-            {
-                Console.WriteLine("No employee found!");
-                return new List<Employee>();
-            }
-
-            return list;
-        }
-    }
-
     internal class Program
     {
         static void Main(string[] args)
